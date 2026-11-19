@@ -4,12 +4,12 @@
    ============================================================ */
 
 :root{
-  --bg:#070b0b;
-  --bg-soft:#0b1213;
-  --panel:rgba(255,255,255,.038);
-  --line:rgba(255,255,255,.10);
-  --text:#eaf1ea;
-  --muted:#94a49b;
+  --bg:#05080a;
+  --bg-soft:#0a1113;
+  --panel:rgba(255,255,255,.046);
+  --line:rgba(255,255,255,.12);
+  --text:#e9f1ed;
+  --muted:#8fa39a;
   --lime:#cfee6a;
   --green:#38c27c;
   --gold:#ffd35c;
@@ -46,9 +46,9 @@ body::before{
   inset:0;
   z-index:-2;
   background:
-    radial-gradient(900px 600px at 82% -8%,rgba(56,194,124,.14),transparent 62%),
-    radial-gradient(760px 520px at 6% 12%,rgba(207,238,106,.08),transparent 60%),
-    radial-gradient(900px 700px at 50% 110%,rgba(154,124,246,.10),transparent 65%),
+    radial-gradient(980px 620px at 84% -10%,rgba(56,194,124,.11),transparent 64%),
+    radial-gradient(720px 500px at 4% 10%,rgba(207,238,106,.06),transparent 62%),
+    radial-gradient(1100px 760px at 50% 118%,rgba(56,194,124,.05),transparent 68%),
     var(--bg);
 }
 
@@ -60,7 +60,7 @@ ul{margin:0;padding:0;list-style:none;}
 button{font-family:inherit;color:inherit;background:none;border:0;cursor:pointer;}
 
 .grain{
-  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
@@ -162,12 +162,11 @@ button{font-family:inherit;color:inherit;background:none;border:0;cursor:pointer
   font-size:clamp(3.6rem,15vw,10.5rem);
   line-height:.92;
   letter-spacing:.02em;
-  background:linear-gradient(180deg,#ffffff 0%,#eafff0 42%,#cfee6a 100%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-  filter:drop-shadow(0 18px 60px rgba(56,194,124,.22));
 }
 .hero__title span{
   display:inline-block;
+  background:linear-gradient(180deg,#ffffff 0%,#effff2 44%,#d8f27c 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
   animation:titleIn 1s cubic-bezier(.2,.8,.2,1) both;
 }
 .hero__title span:nth-child(1){animation-delay:.16s;}
@@ -176,8 +175,8 @@ button{font-family:inherit;color:inherit;background:none;border:0;cursor:pointer
 .hero__title span:nth-child(4){animation-delay:.52s;}
 .hero__title--code{letter-spacing:.04em;}
 @keyframes titleIn{
-  from{opacity:0;transform:translateY(40px) rotate(4deg);filter:blur(12px);}
-  to{opacity:1;transform:none;filter:blur(0);}
+  from{opacity:0;transform:translateY(40px) rotate(4deg);}
+  to{opacity:1;transform:none;}
 }
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(18px);}
@@ -415,20 +414,19 @@ button{font-family:inherit;color:inherit;background:none;border:0;cursor:pointer
   align-items:center;
 }
 .member + .member{margin-top:clamp(56px,9vw,110px);}
-.member--zi .member__visual{order:2;}
 
 .member__visual{
   position:relative;
-  aspect-ratio:4/4.4;
+  aspect-ratio:4/5;
   border-radius:var(--radius);
   overflow:hidden;
   border:1px solid var(--line);
-  background-size:cover;background-position:center;
+  background:var(--bg-soft);
   isolation:isolate;
 }
-.member__visual::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(7,11,11,.05),rgba(7,11,11,.62));
+.member__visual img{
+  width:100%;height:100%;display:block;
+  object-fit:cover;object-position:center 32%;
 }
 .member--tian .member__visual{
   box-shadow:0 30px 80px -40px rgba(255,211,92,.55);
@@ -929,8 +927,7 @@ button{font-family:inherit;color:inherit;background:none;border:0;cursor:pointer
 @media (max-width:980px){
   .corn{grid-template-columns:1fr;}
   .member{grid-template-columns:1fr;}
-  .member--zi .member__visual{order:0;}
-  .member__visual{aspect-ratio:16/11;}
+  .member__visual{aspect-ratio:3/4;}
   .drama__inner{grid-template-columns:1fr;}
   .timeline{grid-template-columns:1fr;}
   .timeline li + li{border-top:1px solid var(--line);}
