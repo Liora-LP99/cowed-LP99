@@ -7,7 +7,6 @@
 直接双击 `index.html` 就能看。想用本地服务器：
 
 ```bash
-cd sweetcorn-site
 python3 -m http.server 8080
 ```
 
@@ -16,10 +15,11 @@ python3 -m http.server 8080
 ## 目录结构
 
 ```
-sweetcorn-site/
+。
 ├── index.html            页面结构（所有文案、区块顺序都在这里）
 └── assets/
     ├── css/style.css     全部样式：配色、渐变、响应式
+    ├── img/              成员写真等本地图片
     └── js/site.js        交互与视频配置（顶部 VIDEOS 数组）
 ```
 
@@ -33,28 +33,25 @@ sweetcorn-site/
 | 应援口号 | `index.html` 搜 `slogans` |
 | 主题色 / 渐变 | `assets/css/style.css` 顶部 `:root` 变量 |
 
-## 变成 Git 仓库
+## Git 与远程仓库
 
-当前机器没装 git，所以打包时没有 `.git`，但已经放好 `.gitignore`。
-在 Mac 上解压后执行：
+仓库已初始化，远程已配置：GitHub（`origin`）、Gitee（`gitee`）。
 
 ```bash
-cd sweetcorn-site
-git init
-git add .
-git commit -m "init: LP99 甜玉米应援站"
-git remote add origin <你的仓库地址>
-git push -u origin main
+git add -A
+git commit -m "说明这次改了什么"
+git push              # GitHub
+git push gitee main   # Gitee
 ```
 
 ## 部署
 
-- 线上地址：https://37knvsgxns9mg66t9lq.traesite.cn
-- 站点 ID：`37knvsgxns9mg66t9lq`
+- GitHub Pages（自动）：https://liora-lp99.github.io/cowed-LP99/ ，push 到 GitHub 后自动更新
+- 原 Trae 站点（手动）：https://37knvsgxns9mg66t9lq.traesite.cn ，站点 ID `37knvsgxns9mg66t9lq`
 
-### 沿用原站点更新（推荐）
+### 沿用原站点更新（手动）
 
-1. 在 Trae 中打开解压后的 `sweetcorn-site` 目录，确认根目录下有 `index.html`。
+1. 在 Trae 中打开项目根目录，确认根目录下有 `index.html`。
 2. 让助手部署时明确说明：**部署到已有站点，站点 ID 为 `37knvsgxns9mg66t9lq`**，不要新建站点。
 3. 部署完成后打开原网址刷新，确认最新改动生效。域名保持不变，只会多一个版本。
 
@@ -66,4 +63,4 @@ git push -u origin main
 
 - 部署是快照：本地改了不重新部署，线上不会变。
 - 必须登录同一账号，才能看到并复用这个站点。
-- 图片目前是网络外链；等你换成本地图片后，记得把 `assets/img` 一起部署。
+- 成员写真已改为本地图片（`assets/img`），部署时会随站点一起上传。

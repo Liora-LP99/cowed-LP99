@@ -3,3 +3,14 @@ Thumbs.db
 desktop.ini
 node_modules/
 *.log
+
+# 根目录下的 Remotion 项目，与本网站无关
+/build/
+/out/
+/src/
+/package.json
+/package-lock.json
+/remotion.config.ts
+/tsconfig.json
+.screenshots/
+.trae-html-share-packages/
